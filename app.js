@@ -9,7 +9,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 // Connect To MongoDB..
-mongoose.connect('mongodb://localhost:27017/employee');
+mongoose.connect('mongodb+srv://debobratap:debukgec1991@cluster0-bjwzh.mongodb.net/NodeAppDB?retryWrites=true');
 
 const app = express();
 
