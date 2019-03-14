@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const pipelineRouter = require('./routes/pipeline');
 
 // Connect To MongoDB..
 mongoose.connect('mongodb+srv://debobratap:debukgec1991@cluster0-bjwzh.mongodb.net/NodeAppDB?retryWrites=true');
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/pipeline', pipelineRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
