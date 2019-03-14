@@ -24,9 +24,9 @@ exports.executePipeline = function (req, res) {
     });
 
     var playbook = new Ansible.Playbook().playbook(pipeline.playbookName);
-    playbook.on('stdout', function(data) { console.log(data.toString()); });
-    playbook.on('stderr', function(data) { console.log(data.toString()); });
+    playbook.on('stdout', function(data) { res.render('pipeline', {playbookLog: data.toString()}); });
+    playbook.on('stderr', function(data) { res.render('pipeline', {playbookLog: data.toString()}); });
     playbook.inventory('/home/kovair/ansible/dev')
     playbook.exec({cwd:"/home/kovair/ansible/playbooks"});
-	res.send('Playbook is being executed');
+
 }
